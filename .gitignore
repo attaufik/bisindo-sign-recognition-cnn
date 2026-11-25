@@ -1,0 +1,29 @@
+# Virtual environments
+.venv/
+venv/
+env/
+frontend/env_gpu/
+
+# Dataset (too large for GitHub — hosted on Roboflow Universe)
+dataset/
+
+# Old/unused model weights
+frontend/model_bisindo_super.h5
+frontend/model_bisindo_superV2.h5
+frontend/model_bisindo_cnn.keras
+
+# Python cache & Jupyter
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+
+# Temporary / debug files
+frontend/debug_crop.jpg
+frontend/static/uploads/*
+!.gitkeep
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/

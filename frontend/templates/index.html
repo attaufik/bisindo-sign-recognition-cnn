@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BISINDO AI - Live Detection</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom font import untuk menyerupai Figma */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 h-screen flex overflow-hidden">
+
+    <!-- SIDEBAR (Kiri) -->
+    <aside
+        class="w-72 bg-[#1A233A] text-white flex-col hidden md:flex h-full border-r border-slate-700 shadow-xl z-20 shrink-0">
+        <div class="p-6 flex-1">
+            <!-- Logo -->
+            <div class="flex items-center gap-3 mb-10">
+                <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-xl shadow-lg">
+                    👋
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg leading-tight tracking-wide">BISINDO AI</h1>
+                    <p class="text-[9px] text-slate-400 tracking-widest font-semibold uppercase mt-0.5">Sign
+                        Language<br>Recognition</p>
+                </div>
+            </div>
+
+            <!-- Menu Workspace -->
+            <p class="text-xs font-bold text-slate-400 mb-4 tracking-wider">WORKSPACE</p>
+            <nav class="space-y-1.5">
+                <a href="#"
+                    class="flex items-center gap-3 text-sm px-4 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-slate-200 transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z">
+                        </path>
+                    </svg>
+                    Dashboard
+                </a>
+                <a href="#"
+                    class="flex items-center gap-3 text-sm px-4 py-2.5 rounded-lg bg-[#243B6B] text-white border-l-4 border-blue-500 font-semibold shadow-inner transition">
+                    <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                        </path>
+                    </svg>
+                    Live Detection
+                </a>
+                <a href="#"
+                    class="flex items-center gap-3 text-sm px-4 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-slate-200 transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    Detection History
+                </a>
+                <a href="#"
+                    class="flex items-center gap-3 text-sm px-4 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-slate-200 transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                        </path>
+                    </svg>
+                    BISINDO Alphabet Guide
+                </a>
+            </nav>
+        </div>
+
+        <!-- Info Model Bawah Sidebar -->
+        <div class="p-6">
+            <div class="bg-[#242F4A] rounded-xl p-4 border border-[#344161]">
+                <svg class="w-6 h-6 text-blue-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z">
+                    </path>
+                </svg>
+                <h4 class="text-sm font-bold text-white mb-1">Built to understand.</h4>
+                <p class="text-xs text-slate-400">Custom CNN - 26 alphabets<br>TensorFlow & Flask</p>
+            </div>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT (Kanan) -->
+    <main class="flex-1 h-full overflow-y-auto bg-slate-50 relative">
+        <div class="max-w-6xl mx-auto p-6 md:p-10">
+
+            <!-- Breadcrumb & Top Bar -->
+            <div class="flex justify-between items-center mb-8 border-b border-slate-200 pb-4">
+                <div class="text-sm text-slate-500 font-medium">
+                    Workspace <span class="mx-2">›</span> <span class="text-slate-800 font-bold">Live Detection</span>
+                </div>
+                <div class="hidden sm:flex items-center gap-4">
+                    <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-bold tracking-wide">AI
+                        RESEARCH</span>
+                    <span class="text-sm text-slate-500 font-medium">Indonesian Sign Language</span>
+                </div>
+            </div>
+
+            <!-- Page Title -->
+            <div class="mb-6">
+                <h2 class="text-3xl font-extrabold text-[#1A233A] mb-2">Live detection</h2>
+                <p class="text-slate-500 text-sm">Position your hands in view or upload an image to explore BISINDO
+                    alphabet recognition.</p>
+            </div>
+
+            <!-- Layout 2 Kolom -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+                <!-- KOLOM KIRI: Kamera & Upload -->
+                <div class="lg:col-span-2 flex flex-col gap-6">
+
+                    <!-- Tab Pemilihan Mode -->
+                    <div class="flex gap-2">
+                        <button id="tab-kamera"
+                            class="px-5 py-2.5 text-sm font-semibold rounded-lg bg-blue-600 text-white shadow-md transition-all">Camera
+                            Input</button>
+                        <button id="tab-upload"
+                            class="px-5 py-2.5 text-sm font-semibold rounded-lg text-slate-600 bg-white border border-slate-200 hover:bg-slate-50 transition-all">Upload
+                            Image</button>
+                    </div>
+
+                    <!-- Container Input -->
+                    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                        <div class="flex justify-between items-center p-4 border-b border-slate-100 bg-slate-50/50">
+                            <h3 class="font-semibold text-slate-700" id="input-title">Camera preview</h3>
+                            <div class="flex items-center gap-2 text-xs font-bold text-green-600 bg-green-100 px-3 py-1.5 rounded-full"
+                                id="status-badge">
+                                <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                                Camera on
+                            </div>
+                        </div>
+
+                        <!-- Mode 1: Kamera -->
+                        <div id="mode-kamera"
+                            class="relative bg-[#1A233A] aspect-video w-full flex items-center justify-center">
+                            <video id="videoElement" autoplay playsinline
+                                class="w-full h-full object-cover transform -scale-x-100"></video>
+
+                            <!-- Bounding Box Hijau (ROI) -->
+                            <div
+                                class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/5 h-3/5 border-2 border-green-400 border-dashed rounded-xl z-10 bg-green-400/5">
+                            </div>
+
+                            <!-- Label Bawah Kamera -->
+                            <div
+                                class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-[#1A233A]/80 backdrop-blur text-white text-xs px-4 py-2 rounded-lg font-medium border border-slate-600">
+                                Place your hand inside the detection area
+                            </div>
+                        </div>
+
+                        <!-- Mode 2: Upload (Hidden by default) -->
+                        <div id="mode-upload"
+                            class="hidden aspect-video w-full bg-slate-50 flex-col items-center justify-center p-6 border-t border-slate-100">
+                            <input type="file" id="fileInput" accept="image/*" class="hidden">
+
+                            <!-- Area Preview Gambar -->
+                            <div id="upload-placeholder"
+                                class="text-center w-full flex flex-col items-center justify-center h-full border-2 border-dashed border-slate-300 rounded-xl bg-white hover:bg-slate-50 transition cursor-pointer"
+                                onclick="document.getElementById('fileInput').click()">
+                                <svg class="w-12 h-12 text-slate-400 mb-3" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
+                                </svg>
+                                <span class="text-slate-600 font-semibold">Click to browse image</span>
+                                <span class="text-slate-400 text-xs mt-1">Supports JPG, PNG</span>
+                            </div>
+
+                            <img id="imagePreview"
+                                class="hidden h-full object-contain rounded-lg shadow-sm border border-slate-200">
+                            <button id="btn-change-image"
+                                class="hidden mt-4 px-4 py-2 text-xs font-semibold bg-slate-200 text-slate-700 rounded-lg hover:bg-slate-300 transition"
+                                onclick="document.getElementById('fileInput').click()">Change Image</button>
+                        </div>
+                    </div>
+
+                    <!-- Panduan Kamera -->
+                    <div
+                        class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 flex flex-col sm:flex-row gap-6 justify-between">
+                        <div class="flex items-start gap-3">
+                            <div
+                                class="w-8 h-8 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-[#1A233A] mb-1">For a clearer capture</h4>
+                                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-3">
+                                    <div>
+                                        <p class="text-xs font-semibold text-slate-800">Good lighting</p>
+                                        <p class="text-xs text-slate-500 mt-0.5">Keep hands evenly lit.</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs font-semibold text-slate-800">Stay inside the box</p>
+                                        <p class="text-xs text-slate-500 mt-0.5">Exclude your face & body.</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs font-semibold text-slate-800">Plain background</p>
+                                        <p class="text-xs text-slate-500 mt-0.5">Use a solid wall behind.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KOLOM KANAN: Hasil -->
+                <div class="flex flex-col gap-6">
+
+                    <!-- Kartu Hasil Pengenalan -->
+                    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                        <div class="p-4 border-b border-slate-100 flex justify-between items-center">
+                            <h3 class="font-semibold text-slate-700">Recognition result</h3>
+                            <span
+                                class="text-[10px] font-bold uppercase tracking-wider text-green-600 bg-green-50 px-2 py-1 rounded border border-green-100"
+                                id="status-recognized">Recognized</span>
+                        </div>
+
+                        <div class="p-6 flex flex-col items-center">
+                            <p class="text-[10px] font-bold text-blue-600 tracking-widest uppercase mb-4">Predicted
+                                Letter</p>
+                            <!-- Huruf Besar Hasil Prediksi -->
+                            <h1 class="text-8xl font-black text-[#1A233A] mb-2" id="result-letter">-</h1>
+                            <p class="text-xs text-slate-400 mb-8">BISINDO alphabet</p>
+
+                            <!-- Bar Akurasi -->
+                            <div class="w-full">
+                                <div class="flex justify-between items-end mb-2">
+                                    <span class="text-xs text-slate-500 font-medium">Prediction confidence</span>
+                                    <span class="text-lg font-bold text-[#1A233A]" id="result-accuracy">0.00%</span>
+                                </div>
+                                <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                                    <div class="bg-green-500 h-full transition-all duration-500 ease-out"
+                                        id="accuracy-bar" style="width: 0%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kartu Info Sistem -->
+                    <div class="bg-blue-50/50 rounded-2xl border border-blue-100 p-6">
+                        <h4 class="text-sm font-bold text-[#1A233A] mb-2">Custom CNN • 26 classes</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed">
+                            TensorFlow + Keras model, served by Flask. JavaScript Snapshot API sends a frame every 500ms
+                            for image classification locally.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- SCRIPT LOGIKA KAMERA & API -->
+    <script>
+        const video = document.getElementById('videoElement');
+        const tabKamera = document.getElementById('tab-kamera');
+        const tabUpload = document.getElementById('tab-upload');
+        const modeKamera = document.getElementById('mode-kamera');
+        const modeUpload = document.getElementById('mode-upload');
+        const fileInput = document.getElementById('fileInput');
+        const imagePreview = document.getElementById('imagePreview');
+        const uploadPlaceholder = document.getElementById('upload-placeholder');
+        const btnChangeImage = document.getElementById('btn-change-image');
+
+        let stream = null;
+        let detectionInterval = null;
+
+        // Fungsi Memanggil API Flask
+        async function fetchPrediction(base64Image) {
+            try {
+                const response = await fetch('/predict_snapshot', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ image: base64Image })
+                });
+                const data = await response.json();
+
+                // Variabel `data.huruf` sesuai dengan app.py milikmu
+                if (data.huruf) {
+                    document.getElementById('result-letter').innerText = data.huruf;
+                    document.getElementById('result-accuracy').innerText = data.akurasi + '%';
+                    document.getElementById('accuracy-bar').style.width = data.akurasi + '%';
+                }
+            } catch (err) {
+                console.error("Gagal mendapat prediksi:", err);
+            }
+        }
+
+        // Fungsi Menyalakan Kamera
+        async function startCamera() {
+            try {
+                stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                video.srcObject = stream;
+
+                document.getElementById('status-badge').innerHTML = '<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> Camera on';
+                document.getElementById('status-badge').className = "flex items-center gap-2 text-xs font-bold text-green-600 bg-green-100 px-3 py-1.5 rounded-full";
+
+                // Ambil snapshot tiap 500ms
+                detectionInterval = setInterval(() => {
+                    if (!video.videoWidth) return;
+                    const canvas = document.createElement('canvas');
+                    canvas.width = video.videoWidth;
+                    canvas.height = video.videoHeight;
+                    canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+                    fetchPrediction(canvas.toDataURL('image/jpeg'));
+                }, 500);
+            } catch (err) {
+                console.error("Akses kamera ditolak:", err);
+                document.getElementById('status-badge').innerHTML = '<span class="w-2 h-2 rounded-full bg-red-500"></span> Camera Off';
+                document.getElementById('status-badge').className = "flex items-center gap-2 text-xs font-bold text-red-600 bg-red-100 px-3 py-1.5 rounded-full";
+            }
+        }
+
+        // Fungsi Mematikan Kamera
+        function stopCamera() {
+            if (stream) stream.getTracks().forEach(track => track.stop());
+            if (detectionInterval) clearInterval(detectionInterval);
+        }
+
+        // Event Listener: Upload Gambar
+        fileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    const base64Str = event.target.result;
+                    imagePreview.src = base64Str;
+                    imagePreview.classList.remove('hidden');
+                    btnChangeImage.classList.remove('hidden');
+                    uploadPlaceholder.classList.add('hidden');
+
+                    // Reset UI hasil sementara memproses
+                    document.getElementById('result-letter').innerText = '...';
+
+                    // Kirim ke backend
+                    fetchPrediction(base64Str);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Event Listener: Tab Switcher
+        tabKamera.addEventListener('click', () => {
+            // Styling Tombol
+            tabKamera.className = "px-5 py-2.5 text-sm font-semibold rounded-lg bg-blue-600 text-white shadow-md transition-all";
+            tabUpload.className = "px-5 py-2.5 text-sm font-semibold rounded-lg text-slate-600 bg-white border border-slate-200 hover:bg-slate-50 transition-all";
+
+            // Switch View
+            modeKamera.classList.remove('hidden');
+            modeUpload.classList.add('hidden');
+            modeUpload.classList.remove('flex');
+
+            document.getElementById('input-title').innerText = "Camera preview";
+            startCamera();
+        });
+
+        tabUpload.addEventListener('click', () => {
+            // Styling Tombol
+            tabUpload.className = "px-5 py-2.5 text-sm font-semibold rounded-lg bg-blue-600 text-white shadow-md transition-all";
+            tabKamera.className = "px-5 py-2.5 text-sm font-semibold rounded-lg text-slate-600 bg-white border border-slate-200 hover:bg-slate-50 transition-all";
+
+            // Switch View
+            modeUpload.classList.remove('hidden');
+            modeUpload.classList.add('flex');
+            modeKamera.classList.add('hidden');
+
+            document.getElementById('input-title').innerText = "Image Upload";
+            document.getElementById('status-badge').innerHTML = 'Ready';
+            document.getElementById('status-badge').className = "flex items-center gap-2 text-xs font-bold text-slate-500 bg-slate-100 px-3 py-1.5 rounded-full";
+
+            stopCamera();
+        });
+
+        // Jalankan kamera saat pertama dibuka
+        startCamera();
+    </script>
+</body>
+
+</html>
